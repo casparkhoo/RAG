@@ -1,5 +1,6 @@
 # app.py
 from flask import Flask, request, jsonify, send_from_directory
+from flask_cors import CORS
 from bs4 import BeautifulSoup
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_community.document_loaders import WebBaseLoader
@@ -10,6 +11,7 @@ import re, os
 
 load_dotenv()
 app = Flask(__name__)
+CORS(app)
 
 def clean_html_content(html_content: str):
     soup = BeautifulSoup(html_content, 'html.parser')
