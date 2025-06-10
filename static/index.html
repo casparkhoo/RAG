@@ -129,7 +129,7 @@
         // Render markdown as HTML
         resultBox.innerHTML = data.summary ? marked.parse(data.summary) : data.error || 'No response';
       } catch (error) {
-        resultBox.innerHTML = 'Failed to summarise. See console.';
+        resultBox.innerHTML = 'Failed to summarise.';
         console.error(error);
       } finally {
         loadingBox.style.display = 'none';
