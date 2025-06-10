@@ -122,7 +122,7 @@
       loadingBox.style.display = 'block';
 
       try {
-        const response = await fetch('http://127.0.0.1:5000/summarise', {
+        const response = await fetch('/summarise', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({ url })
@@ -139,7 +139,7 @@
         }
       } catch (error) {
         resultBox.innerHTML = 'Failed to summarise.';
-        debugBox.innerHTML = 'Debug: ' + (error.message || error);
+        debugBox.innerHTML = 'Debug: ' + (error.message || 'error');
         console.error(error);
       } finally {
         loadingBox.style.display = 'none';

@@ -7,16 +7,16 @@
     ],
     "routes": [
         {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
-        },
-        {
             "src": "/summarise",
             "methods": ["POST"],
             "dest": "app.py"
         },
         {
             "src": "/",
+            "dest": "app.py"
+        },
+                {
+            "src": "/(.*)",
             "dest": "app.py"
         }
     ]

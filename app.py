@@ -12,6 +12,7 @@ import re, os
 load_dotenv()
 app = Flask(__name__)
 CORS(app)
+user_agent = os.getenv("USER_AGENT", "MyAppBot/1.0")
 
 def clean_html_content(html_content: str):
     soup = BeautifulSoup(html_content, 'html.parser')
@@ -95,7 +96,7 @@ def summarise():
 
 @app.route('/')
 def serve_index():
-    return send_from_directory('static', 'index.html')
+    return send_from_directory('.', 'index.html')
 
 
 # if __name__ == '__main__':
