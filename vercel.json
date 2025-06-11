@@ -17,35 +17,15 @@
             "dest": "app.py"
         },
         {
+            "src": "/",
+            "dest": "app.py"
+        },
+                {
             "src": "/text",
             "dest": "app.py"
         },
-        {
-            "src": "/index.html",
-            "dest": "/index.html"
-        },
-        {
-            "src": "/text.html",
-            "dest": "/text.html"
-        },
-        {
-            "src": "/static/(.*)",
-            "dest": "/static/$1"
-        },
-        {
-            "src": "/webpage.js",
-            "dest": "/webpage.js"
-        },
-        {
-            "src": "/text.js",
-            "dest": "/text.js"
-        },
-        {
-            "src": "/style.css",
-            "dest": "/style.css"
-        },
-        {
-            "src": "/",
+                {
+            "src": "/(.*)",
             "dest": "app.py"
         }
     ]
