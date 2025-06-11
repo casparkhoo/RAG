@@ -93,10 +93,39 @@ def summarise():
         print("❌ Error:", e)
         return jsonify({'error': str(e)}), 500
 
+@app.route('/summarise_text', methods=['POST'])
+def summarise_text():
+    try:
+        text = request.json['text'] # type: ignore
+        print(f"🛰️ Received text for summary: {text[:60]}...")
+        cleaned_scraped_text = clean_text(text)
+
+        groq_api_key = os.getenv("GROQ_API_KEY")
+        if not groq_api_key:
+            raise ValueError("Missing GROQ_API_KEY in environment")
+
+        model = ChatGroq(api_key=groq_api_key, model="gemma2-9b-it") # type: ignore
+
+        prompt_template = ChatPromptTemplate.from_messages([
+            ("system", "You are a helpful assistant"),
+            ("user", "Summarise this text in simple English: {text}"),
+        ])
+        formatted_prompt = prompt_template.invoke({"text": cleaned_scraped_text})
+        summary = model.invoke(formatted_prompt)
+        print("✅ Text summary complete")
+
+        return jsonify({'summary': summary.content})
+    except Exception as e:
+        print("❌ Error:", e)
+        return jsonify({'error': str(e)}), 500
 
 @app.route('/')
 def serve_index():
     return send_from_directory('.', 'index.html')
+
+@app.route('/text')
+def serve_text():
+    return send_from_directory('.', 'text.html')
 
 
 # if __name__ == '__main__':

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SpeechBot - Text Summariser</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Quick Text Summariser</h2>
+    <textarea id="textInput" rows="4" style="width:100%;font-size:20px;" placeholder="Paste or type text here"></textarea>
+    <div class="button-container">
+        <button class="submit" onclick="summariseText()">Summarise Text</button>
+        <button class="clear" onclick="clearTextResult()">Clear</button>
+    </div>
+    <div id="textResult" class="summary"></div>
+    <div id="textDebug" style="color: #b00; margin-top: 20px; font-size: 18px;"></div>
+    <a href="/" class="switch-link">Switch to Webpage Summariser</a>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="text.js"></script>
+</body>
+</html>
