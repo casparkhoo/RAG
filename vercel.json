@@ -7,26 +7,46 @@
     ],
     "routes": [
         {
+            "src": "/style.css",
+            "dest": "/style.css"
+        },
+        {
+            "src": "/webpage.js",
+            "dest": "/webpage.js"
+        },
+        {
+            "src": "/text.js",
+            "dest": "/text.js"
+        },
+        {
+            "src": "/index.html",
+            "dest": "/index.html"
+        },
+        {
+            "src": "/text.html",
+            "dest": "/text.html"
+        },
+        {
+            "src": "/static/(.*)",
+            "dest": "/static/$1"
+        },
+        {
             "src": "/summarise",
             "methods": ["POST"],
-            "dest": "/app.py"
+            "dest": "app.py"
         },
         {
             "src": "/summarise_text",
             "methods": ["POST"],
-            "dest": "/app.py"
-        },
-        {
-            "src": "/",
-            "dest": "/app.py"
+            "dest": "app.py"
         },
         {
             "src": "/text",
-            "dest": "/app.py"
+            "dest": "app.py"
         },
-                {
-            "src": "/(.*)",
-            "dest": "/app.py"
+        {
+            "src": "/",
+            "dest": "app.py"
         }
     ]
 }
