@@ -52,12 +52,12 @@
       transition: background-color 1.5s;
     }
     button.submit {
-      background-color: orange;
+      background-color: orangered;
       color: white;
     }
     button.clear {
       background-color: grey;
-      color: white;
+      color: rgb(255, 255, 255);
     }
     button:hover {
       opacity: 0.6;
@@ -112,7 +112,9 @@
     <div class="button-container">
       <button class="submit" onclick="summarise()">Summarise</button>
       <button class="clear" onclick="clearResult()">Clear</button>
-    </div>s
+    </div>
+    <div id="loading" class="loading">
+      <div class="spinner"></div>
     <div id="result" class="summary" contenteditable="true" style="min-height: 200px; outline: none;"></div>
     </div>
     <div id="debug" style="color: #b00; margin-top: 20px; font-size: 18px;"></div>
